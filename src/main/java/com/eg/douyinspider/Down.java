@@ -22,15 +22,12 @@ public class Down {
 
         String sec_uid = "MS4wLjABAAAApU6s3fSOZzifZTMkjGWjcLiAq75Z-dvsR51FM79WBOM";
         String _signature = "Pm-tNQAAXrDZGFUzJWb8bD5vrS";
-                          1623469751000
-        long min_cursor = 1622899045000L;
+        long min_cursor = 1522899045000L;
         long max_cursor = 1623504985407L;
-                          1622971916000
-        int count = 21;
+        int count = 100;
         JSONObject videoListResponse = down.getVideos(sec_uid, _signature, min_cursor, max_cursor, count);
         System.out.println(videoListResponse);
         JSONArray aweme_list = videoListResponse.getJSONArray("aweme_list");
-        System.out.println(aweme_list);
     }
 
 }
