@@ -53,8 +53,8 @@ public class Down {
 
     public static void main(String[] args) {
         Down down = new Down();
-        String sec_uid = "MS4wLjABAAAAGI7A6weZZ5J8g5Fe-Dd_SOho75oVErhFh7JW9XY_Aok";
-        String _signature = "6QwuEAAAidEOe9YWg.vPsukMLg";
+        String sec_uid = "MS4wLjABAAAA7H_XhjBdkF9KWKdQgh02uVgE63siFgPbI6NcjI-O81E";
+        String _signature = "FK7NLwAAdHDz2TUpbJVWmhSuzT";
 
         JSONObject userInfo = down.getUserInfo(sec_uid);
         int aweme_count = userInfo.getJSONObject("user_info").getInteger("aweme_count");
