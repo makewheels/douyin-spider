@@ -38,6 +38,12 @@ public class Down {
             String vid = aweme.getJSONObject("video").getString("vid");
             String desc = aweme.getString("desc");
             desc = desc.replace("/", "");
+            desc = desc.replace("?", "？");
+            desc = desc.replace("*", "_");
+            desc = desc.replace(":", "：");
+            desc = desc.replace("<", "《");
+            desc = desc.replace(">", "》");
+            desc = desc.replace("|", "_");
 
             System.out.println(aweme_id + " " + desc);
             String url = "https://aweme.snssdk.com/aweme/v1/play/?video_id=" + vid;
@@ -47,14 +53,18 @@ public class Down {
             File file = new File(folder,
                     aweme.getJSONObject("author").getString("nickname")
                             + "/" + aweme_id + " " + desc + ".mp4");
-            HttpUtil.downloadFile(url, file);
+            try {
+                HttpUtil.downloadFile(url, file);
+            } catch (Exception e) {
+                HttpUtil.downloadFile(url, file);
+            }
         }
     }
 
     public static void main(String[] args) {
         Down down = new Down();
-        String sec_uid = "MS4wLjABAAAAPNBZbXCGObTxkTKRccqSSm5NFNUPlL0duDuEglTYxJY";
-        String _signature = "xS1tvwAApfIiWpW5D6wbU8Utba";
+        String sec_uid = "MS4wLjABAAAAdePQYO6irk0owkwlKYqIsnUIzwyHhzl6QjW_dtSqXZE";
+        String _signature = "pAea0QAAxM1DcGLXTb5z6KQHms";
 
         JSONObject userInfo = down.getUserInfo(sec_uid);
         int aweme_count = userInfo.getJSONObject("user_info").getInteger("aweme_count");
